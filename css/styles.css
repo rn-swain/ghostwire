@@ -1,0 +1,484 @@
+/* Ghostwire - Neo-Brutalist Bento Grid Theme */
+
+:root {
+    --bg-primary: #f0f0f0; /* Light gray background to pop colors */
+    --bg-secondary: #ffffff;
+    --text-primary: #000000;
+    
+    --border-color: #000000;
+    --border-width: 4px;
+    
+    --shadow-distance: 8px;
+    --shadow-solid: var(--shadow-distance) var(--shadow-distance) 0px #000000;
+    --shadow-active: 2px 2px 0px #000000;
+    
+    --accent-red: #ff4949;
+    --accent-blue: #4d90fe;
+    --accent-yellow: #ffdb4d;
+    --accent-pink: #ff66b2;
+    --accent-green: #00e676;
+    --accent-cyan: #18ffff;
+    
+    --radius: 0px; 
+    --transition: transform 0.1s ease, box-shadow 0.1s ease;
+    
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-primary);
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.05) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.05) 2px, transparent 2px),
+        linear-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+}
+
+/* Screen Management */
+.screen {
+    display: none;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.screen.active {
+    display: block;
+}
+
+/* Base Bento Box (Neo-Brutalist Component) */
+.bento-box {
+    background: var(--bg-secondary);
+    border: var(--border-width) solid var(--border-color);
+    box-shadow: var(--shadow-solid);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Base Buttons & Inputs */
+.neo-btn {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    background: var(--bg-secondary);
+    border: var(--border-width) solid var(--border-color);
+    box-shadow: var(--shadow-solid);
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+}
+.neo-btn:hover {
+    transform: translate(calc(var(--shadow-distance) / 2), calc(var(--shadow-distance) / 2));
+    box-shadow: 4px 4px 0px #000;
+}
+.neo-btn:active {
+    transform: translate(var(--shadow-distance), var(--shadow-distance));
+    box-shadow: 0px 0px 0px #000;
+}
+
+.neo-btn.primary { background: var(--accent-blue); color: white; }
+.neo-btn.secondary { background: var(--accent-pink); }
+.neo-btn.danger { background: var(--accent-red); color: white; }
+.neo-btn.outline { background: transparent; }
+.neo-btn.small { padding: 0.5rem 1rem; font-size: 0.9rem; }
+.neo-btn.square { padding: 0.5rem; width: 50px; height: 50px; font-size: 1.2rem;}
+
+.full-width { width: 100%; }
+.mt-1 { margin-top: 1rem; }
+.hidden { display: none !important; }
+.uppercase { text-transform: uppercase; }
+
+.neo-input {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 1rem;
+    border: var(--border-width) solid var(--border-color);
+    background: #fff;
+    width: 100%;
+    outline: none;
+    box-shadow: inset 4px 4px 0px rgba(0,0,0,0.1);
+}
+.neo-input:focus {
+    background: var(--accent-yellow);
+}
+
+.neo-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    text-transform: uppercase;
+    background: var(--accent-cyan);
+    border: 2px solid var(--border-color);
+    box-shadow: 3px 3px 0px #000;
+    font-size: 0.9rem;
+}
+.neo-badge.small { box-shadow: 2px 2px 0px #000; font-size: 0.8rem;}
+a.neo-badge { text-decoration: none; color: black; }
+a.neo-badge:hover { background: var(--accent-yellow); }
+
+/* ==== BENTO GRID LAYOUTS ==== */
+
+/* Landing Setup */
+#landing-screen .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(150px, auto);
+    gap: 1.5rem;
+}
+
+.hero-box {
+    grid-column: span 2;
+    background: var(--accent-yellow);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+}
+
+.hero-box h1 {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: -2px;
+    background: #fff;
+    border: var(--border-width) solid #000;
+    padding: 0.25rem 1rem;
+    box-shadow: 4px 4px 0px #000;
+    margin: 1rem 0;
+}
+
+.hero-box .tagline {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.logo-container {
+    font-size: 4rem;
+    background: #fff;
+    border: var(--border-width) solid #000;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 4px 0 #000;
+}
+
+.create-box {
+    background: var(--accent-cyan);
+}
+.join-box {
+    background: #fff;
+}
+
+.create-box h2, .join-box h2, .info-box h2, .privacy-box h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 4px solid #000;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+.create-box p, .join-box p {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.info-box {
+    grid-column: span 2;
+    background: var(--accent-pink);
+}
+.info-box p {
+    font-weight: 600;
+    line-height: 1.5;
+    background: #fff;
+    padding: 1rem;
+    border: 3px solid #000;
+    margin-bottom: 1rem;
+}
+
+.privacy-box {
+    grid-column: span 2;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.privacy-box h2 { margin-bottom: 0; border: none; }
+.privacy-box p { font-weight: 600; font-family: var(--font-heading); }
+
+/* Create & Join Screens */
+.app-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--accent-red);
+    color: white;
+    margin-bottom: 1.5rem;
+    border: var(--border-width) solid var(--border-color);
+    box-shadow: var(--shadow-solid);
+}
+.app-header h2 { font-family: var(--font-heading); font-size: 1.5rem; text-shadow: 2px 2px 0 #000;}
+
+.create-bento, .join-bento {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+/* Create boxes */
+.status-loading {
+    grid-column: span 2;
+    background: var(--accent-yellow);
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    padding: 3rem;
+}
+.connection-controls {
+    grid-column: span 2;
+    background: #fff;
+}
+
+.connection-controls h3, .qr-bento h3, .scan-bento h3 {
+    font-family: var(--font-heading);
+    background: #000;
+    color: #fff;
+    display: inline-block;
+    padding: 4px 8px;
+    margin-bottom: 1rem;
+}
+
+.neo-input-box {
+    display: flex;
+    border: var(--border-width) solid #000;
+    background: #eee;
+    box-shadow: inset 3px 3px 0 rgba(0,0,0,0.1);
+}
+#room-code {
+    flex: 1;
+    font-family: 'Space Grotesk', monospace;
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+    padding: 1rem;
+    background: var(--accent-cyan);
+}
+.link-box input {
+    flex: 1;
+    font-family: monospace;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 0 1rem;
+    border: none;
+    background: transparent;
+    outline: none;
+}
+.neo-input-box .neo-btn {
+    border: none;
+    border-left: var(--border-width) solid #000;
+    box-shadow: none;
+}
+.neo-input-box .neo-btn:hover { transform: none; background: #ddd; }
+
+.qr-bento {
+    grid-column: span 2;
+    background: var(--accent-green);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#qr-code {
+    background: #fff;
+    padding: 1rem;
+    border: 4px solid #000;
+}
+
+/* Join boxes */
+.input-bento {
+    grid-column: span 1;
+    background: var(--accent-cyan);
+}
+.scan-bento {
+    grid-column: span 1;
+    background: var(--bg-secondary);
+}
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+.input-group label {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: #000;
+    color: #fff;
+    display: inline-block;
+    padding: 2px 6px;
+    align-self: flex-start;
+}
+
+.outline-box {
+    border: 4px solid #000;
+    background: #fff;
+    min-height: 200px;
+}
+
+/* Chat Screen */
+#chat-screen {
+    height: 90vh; /* Leave room for margin */
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    background: #fff;
+    border: var(--border-width) solid var(--border-color);
+    box-shadow: var(--shadow-solid);
+}
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: var(--accent-yellow);
+    border-bottom: var(--border-width) solid var(--border-color);
+}
+.room-stats { display: flex; align-items: center; gap: 1rem; font-weight: 800;}
+.chat-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    background: #fdfdfd;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.system-message {
+    align-self: center;
+    background: var(--accent-red);
+    color: white;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    padding: 0.5rem 1rem;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0 #000;
+}
+
+.message {
+    max-width: 80%;
+    padding: 1rem;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0 #000;
+    background: #fff;
+    font-weight: 600;
+    word-break: break-word;
+}
+.message.own {
+    align-self: flex-end;
+    background: var(--accent-blue);
+    color: #fff;
+}
+.message.other {
+    align-self: flex-start;
+    background: var(--accent-cyan);
+}
+.message-header {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+    padding-bottom: 0.25rem;
+}
+.message-content { line-height: 1.5; }
+.message-time {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-align: right;
+    margin-top: 0.5rem;
+    opacity: 0.8;
+}
+
+.typing-box {
+    background: var(--accent-pink);
+    padding: 0.5rem 1rem;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    border-top: var(--border-width) solid #000;
+    border-bottom: var(--border-width) solid #000;
+}
+
+.chat-input-area {
+    display: flex;
+    padding: 1rem;
+    background: #fff;
+    gap: 1rem;
+}
+.chat-input-area .neo-input { box-shadow: none; border-width: 3px;}
+.chat-input-area .neo-btn { box-shadow: 4px 4px 0 #000; }
+
+/* Modals */
+.modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+.error-box { max-width: 500px; background: var(--accent-red); color: white; }
+.error-box h2 { border-bottom: 3px solid #000; padding-bottom: 0.5rem; margin-bottom: 1rem;}
+.error-box p { font-weight: 600; font-size: 1.1rem; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #landing-screen .bento-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-box, .info-box, .privacy-box {
+        grid-column: span 1;
+    }
+    .hero-box h1 { font-size: 3rem; }
+    
+    .create-bento, .join-bento {
+        grid-template-columns: 1fr;
+    }
+    .status-loading, .connection-controls, .qr-bento, .input-bento, .scan-bento {
+        grid-column: span 1;
+    }
+    
+    #room-code { font-size: 1.5rem; }
+}
+
+@keyframes blinker { 50% { opacity: 0; } }
+.blink { animation: blinker 1s linear infinite; }
